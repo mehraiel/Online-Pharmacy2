@@ -50,9 +50,8 @@ Route::get('home1', function()
 Route::post('/AdminPages.delete','ProductController@store');
 Route::get ("/delete/{id}","ProductController@delete");
 Route::get("UserPages.index","ProductController@InsertToDb");
-Route::get("/AddToCart/{ProdId}",'CartController@store');
 Route::get('/AdminPages.delete','ProductController@LoadDb');
-Route::get('/UserPages.viewcart','CartController@viewcart');
+
 
 
 
