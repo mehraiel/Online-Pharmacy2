@@ -87,7 +87,7 @@
 
 </head>
 
-<title>Edit Information</title> 
+<title>Your Information</title> 
 
 
 
@@ -103,30 +103,45 @@
            </ul>
          </div>
          <div class='title'>
-          <h1>Edit Your Information </h1>
+          <h1>Your Information </h1>
          </div>
 
     </header>
 
 
     <div class='container'>
-        <h3>Edit</h3>
-          <table class="table">
+        <h3 >Your Information</h3>
+        @if($message = session::get('success'))
+        <div class="alert alert-success">
+            <p>{{$message}}</p>
+        </div>
+        @endif
+        <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th> the name </th>
-                    <th> the phone number </th>
-                    <th> the address </th>
+                    <th> Name </th>
+                    <th> Address</th>
+                    <th> Mobile</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($UserData as $row)         
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>{{$row['User_name']}}</td>
+                    <td>{{$row['Address']}}</td>
+                    <td>{{$row['Mobile']}}</td>
+                    <td><a href="{{action('UserDataController@edit',$row['id'])}}">
+                        Edit
+                    </a></td>
                     <td></td>
                 </tr>
+                @endforeach
             </tbody>  
-          </table>   
+          </table>
+        <div>
+            <a href="{{route('UserPages.addUser')}}" class="btn btn-primary">
+            Add New User</a>
+        </div>     
 
 
 

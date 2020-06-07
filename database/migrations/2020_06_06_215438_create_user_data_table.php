@@ -14,9 +14,10 @@ class CreateUserDataTable extends Migration
     public function up()
     {
         Schema::create('user_data', function (Blueprint $table) {
+            $table->increments('id');
             $table->String('User_name');
             $table->String('Adress');
-            $table->String('Mobile');
+            $table-ahh>String('Mobile');
 
             $table->timestamps();
         });
@@ -31,4 +32,8 @@ class CreateUserDataTable extends Migration
     {
         Schema::dropIfExists('user_data');
     }
+
+
+
+
 }
