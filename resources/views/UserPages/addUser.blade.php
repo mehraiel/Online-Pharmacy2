@@ -151,15 +151,15 @@ input[type=submit]:hover {
 <form action="/userData" method="post"> 
 
 <label for="fname">User Name</label>
-    <input type="text" id="User_name" name="User_name" placeholder="Your name..">
+    <input type="text" id="User_name" name="User_name" placeholder="Your name.." class="form-control" >
 
     <label for="lname">Address</label>
-    <input type="text" id="Address" name="Address" placeholder="Your Address..">
+    <input type="text" id="Address" name="Address" placeholder="Your Address.."  class="form-control" >
 
     <label for="country">Mobile</label>
-    <input type="text" id="Mobile" name="Mobile" placeholder="Your number..">
+    <input type="text" id="Mobile" name="Mobile" placeholder="Your number.."  class="form-control" >
   
-    <input type="submit" class="btn btn-primary" value="Submit">
+    <input type="submit" class="btn btn-primary" value="Submit"  >
   </form>
 </div>
 

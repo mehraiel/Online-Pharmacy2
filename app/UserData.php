@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserData extends Model
 {
-    protected $guarded = [];
+    
+
+    protected $fillable = ['User_name','Address','Mobile'];
+    protected $table = 'user_data';
+    
 }
