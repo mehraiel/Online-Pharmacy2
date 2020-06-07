@@ -52,6 +52,9 @@ Route::get ("/delete/{id}","ProductController@delete");
 Route::get("UserPages.index","ProductController@InsertToDb");
 Route::get('/AdminPages.delete','ProductController@LoadDb');
 
+Route::post('/userData','UserDataController@store');
+Route::get ("/userData','UserDataController@index");
+
 
 
 
