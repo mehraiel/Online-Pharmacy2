@@ -6,6 +6,7 @@
 
 <head>
     
+    
 
     <style type="text/css">
 
@@ -111,6 +112,7 @@
 
     <div class='container'>
         <h3 >Your Information</h3>
+        <br/>
         @if($message = session::get('success'))
         <div class="alert alert-success">
             <p>{{$message}}</p>
@@ -131,9 +133,16 @@
                     <td>{{$row['Address']}}</td>
                     <td>{{$row['Mobile']}}</td>
                     <td><a href="{{action('UserDataController@edit',$row['id'])}}">
-                        Edit
-                    </a></td>
-                    <td></td>
+                        EDIT
+                        </a>
+                    </td>
+                    <td>
+                        <form method="post" class="delete_form" action="{{action('UserDataController@destroy',$row['id'])}}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="_method" value="DELETE" />
+                            <button type="submit" class="btn btn-danger"> DELETE</button>
+                        </form>    
+                    </td>
                 </tr>
                 @endforeach
             </tbody>  
@@ -141,7 +150,22 @@
         <div>
             <a href="{{route('UserPages.addUser')}}" class="btn btn-primary">
             Add New User</a>
-        </div>     
+        </div> 
+        
+    <script>
+        $(document).ready(function(){
+            $('.delete_form').on('submit',function(){
+                if(confirm("Are you sure yo want to delete your information?"))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }                  
+            });
+        });
+    </script>    
 
 
 

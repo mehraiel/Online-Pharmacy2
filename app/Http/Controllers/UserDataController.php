@@ -79,6 +79,15 @@ class UserDataController extends Controller
 
     }
 
+    public function destroy($id)
+    {
+      $UserData = $UserData::find($id); 
+      $UserData->delete(); 
+      return redirect()->route('UserPages.retrieve')->with('success','Your Information Deleted');
+
+
+    }
+
 
 
 }
