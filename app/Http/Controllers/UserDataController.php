@@ -4,16 +4,36 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use app\UserData;
+use Illuminate\support\facades\url;
+use Illuminate\support\facades\DB;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
+
 class UserDataController extends Controller
 {
-    public function index()
+   public function InsertTodbb()
+    {
+        $products = DB::select('select * from users');
+        return view('AdminPages.UserDetails',['products'=>$products]);
+    }
+    
+     public function deletes($id)
+    {
+        DB::delete('delete from users where id = ?',[$id]);
+        return redirect('AdminPages.UserDetails')->with('success','datadelete');
+    }
+
+
+    public function indexeee()
     {
       $UserData = $UserData::all()->toArray();
       return view ('UserPages.retrieve',compact('UserData')) ;
        
     }
 
-    public function store (Request $request)
+    public function storees (Request $request)
     { $UserData = new UserData();
     $validatedData = $request->validate([
         'User_name' => 'required',

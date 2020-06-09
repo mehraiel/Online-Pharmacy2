@@ -33,7 +33,14 @@
                                  ABOUT US
                 </a>
                 
+                
+                    </ul>
+                    <ul class="navbar-nav mr-auto">
+                          <a class="navbar-brand" href="{{ url('/AdminPages.UserDetails') }}">
+                                 UserDetails
                 </a>
+                
+                
                     </ul>
                     
 

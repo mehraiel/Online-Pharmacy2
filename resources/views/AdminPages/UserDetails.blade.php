@@ -153,9 +153,6 @@ $(document).ready(function(){
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8"><h2>Users <b>Details</b></h2></div>
-                    <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
-                    </div>
                 </div>
             </div>
             <table class="table table-bordered">
@@ -168,36 +165,15 @@ $(document).ready(function(){
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Beshoy Osama</td>
-                        <td>BeshoyOsama@gmail</td>
-                        <td>0111111111</td>
-                        <td>
-							<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Youssef Osama</td>
-                        <td>YoussefOsama@yahoo</td>
-                        <td>01208907938</td>
-                        <td>
-							<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Engy</td>
-                        <td>Engy@gmail.com</td>
-                        <td>0158989715</td>
-                        <td>
-							<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>      
+                 @foreach($products as $prod)
+                 <tr>
+                 <th>{{$prod->Firstname}}</th>
+                 <th>{{$prod->email}}</th>
+                 <th>{{$prod->Phone}}</th>
+                 <td><a href="/deletee/{{$prod->id}}"><button>delete</button></a></td>
+
+                 </tr>
+                 @endforeach
                 </tbody>
             </table>
         </div>

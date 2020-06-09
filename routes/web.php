@@ -49,14 +49,14 @@ Route::get('home1', function()
 
 Route::post('/AdminPages.delete','ProductController@store');
 Route::get ("/delete/{id}","ProductController@delete");
-Route::get("UserPages.index","ProductController@InsertToDb");
+Route::get("UserPages.index","UserDataController@InsertToDb");
 Route::get('/AdminPages.delete','ProductController@LoadDb');
 
-Route::post('/UserPages.userData','UserDataController@store');
-Route::get ('/UserPages.userData','UserDataController@index');
+Route::post('/AdminPages.UserDetails','UserDataController@storees');
+Route::get ('/AdminPages.UserDetails','UserDataController@indexeee');
 
-
-
+Route::get ("/deletee/{id}","UserDataController@deletes");
+Route::get("AdminPages.UserDetails","UserDataController@InsertTodbb");
 
 
     /*
