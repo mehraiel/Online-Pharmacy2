@@ -30,6 +30,29 @@
 	color:#fff;
 	font-size:70px;
 	}
+    .title{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	}
+    .button1{
+	position:absolute;
+	top:65%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	}
+    .btn1{
+	border:1px solid #fff;
+	color:#fff;
+	padding:10px 30px;
+	text-decoration:none;
+	transition:0.6s ease;
+	}
+    .btn1:hover{
+	background-color:#000;
+    color:#55ff;
+	}
     .container{
 	width:800px;
 	margin:50px auto 0;
@@ -41,41 +64,25 @@
 	padding:0;
 	font-family:serif;
 	}
-    header{background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)) , url(background.jpg);
+    header{background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)) , url(people.jpg);
 	background-size:cover;
 	background-position:center;
     height:100vh;	
    	}
-    table.table {
-    border: 1px solid #000000;
-    background-color: #fffafa;
-    width: 90%;
-    text-align: center;
-    border-collapse: collapse;
-    }
-    table.table td, table.table th {
-    border: 1px solid #000000;
-    padding: 3px 2px;
-    }
-    table.table tbody td {
-    font-size: 20px;
-    }
-    table.table thead {
-    background: #a9a9a9;  
-    border-bottom: 2px solid #000000;
-    }
-    table.table thead th {
-    font-size: 20px;
-    font-weight: bold;
-    color: #FFFFFF;
-    border-left: 2px solid #000000;
-    }
+
     footer.footer {
     text-align: center;
     padding: 3px;
     background-color: #191970;
     color: white;
     }
+
+    .logo h2{
+	float:left;
+	width:150px;
+	height:auto;
+	color:#fff;
+	}
 
 
 
@@ -95,16 +102,23 @@
     <header class="header">
 
         <div class='main'>
-           <ul>
-             <li><a href='#'>HOME</a></li>
-             <li><a href='#'>SERVICES</a></li>
-             <li><a href='#'>ABOUT</a></li>
-             <li><a href='#'>CONTACT</a></li>
-           </ul>
-         </div>
-         <div class='title'>
+            <div class='logo'>
+                <h2>PHARMACY<h2>
+            </div>
+            <ul>
+             <li><a href='/views/home'>HOME</a></li>
+             <li><a href='/index'>SERVICES</a></li>
+             <li><a href='/views/about'>ABOUT</a></li>
+             <li><a href='/views/about'>CONTACT</a></li>
+            </ul>
+        </div>
+        <div class='title'>
           <h1>Edit Your Information </h1>
          </div>
+        <div class='button1'>
+            <a href='/addUser' class='btn1' >Add New User</a>
+            <a href='/retrieve' class='btn1' >Show information</a>          
+        </div>
 
     </header>
 

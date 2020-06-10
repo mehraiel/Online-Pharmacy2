@@ -31,6 +31,44 @@
 	color:#fff;
 	font-size:70px;
 	}
+    .title{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	} 
+    .title h1{
+	color:#fff;
+	font-size:70px;
+	}	
+    .button1{
+	position:absolute;
+	top:65%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	}
+    .btn1{
+	border:1px solid #fff;
+	color:#fff;
+	padding:10px 30px;
+	text-decoration:none;
+	transition:0.6s ease;
+	}
+    .btn1:hover{
+	background-color:#000;
+    color:#55ff;
+	}
+    .btn2{
+	border:1px solid #fff;
+	color:#000;
+	padding:10px 30px;
+	text-decoration:none;
+	transition:0.6s ease;
+	}
+    .btn2:hover{
+	background-color:#000;
+    color:#fff;
+	}
     .container{
 	width:800px;
 	margin:50px auto 0;
@@ -42,7 +80,7 @@
 	padding:0;
 	font-family:serif;
 	}
-    header{background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)) , url(background.jpg);
+    header{background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)) , url(people.jpg);
 	background-size:cover;
 	background-position:center;
     height:100vh;	
@@ -78,6 +116,13 @@
     color: white;
     }
 
+    .logo h2{
+	float:left;
+	width:150px;
+	height:auto;
+	color:#fff;
+	}
+
 
 
 
@@ -96,18 +141,24 @@
     <header class="header">
 
         <div class='main'>
+            <div class='logo'>
+                <h2>PHARMACY<h2>
+            </div>
            <ul>
-             <li><a href='#'>HOME</a></li>
-             <li><a href='#'>SERVICES</a></li>
-             <li><a href='#'>ABOUT</a></li>
-             <li><a href='#'>CONTACT</a></li>
+            <li><a href='/views/home'>HOME</a></li>
+             <li><a href='/index'>SERVICES</a></li>
+             <li><a href='/views/about'>ABOUT</a></li>
+             <li><a href='/views/about'>CONTACT</a></li>
            </ul>
          </div>
          <div class='title'>
           <h1>Your Information </h1>
          </div>
-
+         <div class='button1'>
+            <a href='/addUser' class='btn1' >Add New User</a>          
+        </div>
     </header>
+    
 
 
     <div class='container'>
@@ -124,6 +175,9 @@
                     <th> Name </th>
                     <th> Address</th>
                     <th> Mobile</th>
+                    <th> EDIT</th>
+                    <th> DELETE</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -133,7 +187,7 @@
                     <td>{{$row['Address']}}</td>
                     <td>{{$row['Mobile']}}</td>
                     <td><a href="{{action('UserDataController@edit',$row['id'])}}">
-                        EDIT
+                        <button class="btn2">  EDIT</button>
                         </a>
                     </td>
                     <td>

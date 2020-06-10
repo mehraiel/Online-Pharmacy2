@@ -24,7 +24,7 @@
     }
     
 
-  header{background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)) , url(background.jpg);
+  header{background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)) , url(people.jpg);
 	background-size:cover;
 	background-position:center;
     height:100vh;	
@@ -61,7 +61,7 @@
 	color:#fff;
 	}
 
-   	.title{
+  .title{
 	position:absolute;
 	top:50%;
 	left:50%;
@@ -128,18 +128,18 @@ input[type=submit]:hover {
          <h2>PHARMACY<h2>
        </div>
       <ul>
-        <li><a href='#'>HOME</a></li>
-        <li><a href='#'>SERVICES</a></li>
-        <li><a href='#'>ABOUT</a></li>
-        <li><a href='#'>CONTACT</a></li>
+        <li><a href='/views/home'>HOME</a></li>
+        <li><a href='/index'>SERVICES</a></li>
+        <li><a href='/views/about'>ABOUT</a></li>
+        <li><a href='/views/about'>CONTACT</a></li>
       </ul>
     </div>
     <div class='title'>
      <h1>ADD USER</h1>
     </div>
     <div class='button1'>
-     <a href='#add' class='btn1' >Add New User</a>
-   
+      <a href='/retrieve' class='btn1' >Show information</a> 
+      <a href='/edit' class='btn1' >Edit information</a>
     </div>
     
     

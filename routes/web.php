@@ -49,7 +49,7 @@ Route::get('home1', function()
 
 Route::post('/AdminPages.delete','ProductController@store');
 Route::get ("/delete/{id}","ProductController@delete");
-Route::get("UserPages.index","UserDataController@InsertToDb");
+Route::get("/UserPages.index","UserDataController@InsertToDb");
 Route::get('/AdminPages.delete','ProductController@LoadDb');
 
 Route::post('/AdminPages.UserDetails','UserDataController@storees');
@@ -57,6 +57,10 @@ Route::get ('/AdminPages.UserDetails','UserDataController@indexeee');
 
 Route::get ("/deletee/{id}","UserDataController@deletes");
 Route::get("AdminPages.UserDetails","UserDataController@InsertTodbb");
+
+Route::get('/UserPages.retrieve','UserDataController@indexeee');
+Route::post('/UserPages.addUser','UserDataController@storees');
+Route::post('/UserPages.edit','UserDataController@update');
 
 
     /*
