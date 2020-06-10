@@ -60,7 +60,7 @@ Route::get("AdminPages.UserDetails","UserDataController@InsertTodbb");
 
 Route::get('/UserPages.retrieve','UserDataController@indexeee');
 Route::post('/UserPages.addUser','UserDataController@storees');
-Route::post('/UserPages.edit','UserDataController@update');
+Route::get('/UserPages.edit','UserDataController@update');
 
 
     /*
