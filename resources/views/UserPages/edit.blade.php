@@ -134,7 +134,7 @@
             </ul>
 
         @endif
-        <form method="post" action="{{action('UserDataController@update',$id)}}">
+        <form method="post" action="{{action('UserDataController@updatee',$id)}}">
            {{csrf_field()}}
 
             <input type="hidden" name="_method" value="PATCH" />

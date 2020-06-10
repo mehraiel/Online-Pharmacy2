@@ -26,14 +26,14 @@ class UserDataController extends Controller
     }
 
 
-    public function indexeee()
+    public function indexeeee()
     {
       $UserData = $UserData::all()->toArray();
       return view ('UserPages.retrieve',compact('UserData')) ;
        
     }
 
-    public function storees (Request $request)
+    public function storeess(Request $request)
     { $UserData = new UserData();
     $validatedData = $request->validate([
         'User_name' => 'required',
@@ -61,7 +61,7 @@ class UserDataController extends Controller
     
 
     
-    public function update(Request $request ,$id)
+    public function updatee(Request $request ,$id)
     {
       $this->validate($request ,[
         'User_name' => 'required',
