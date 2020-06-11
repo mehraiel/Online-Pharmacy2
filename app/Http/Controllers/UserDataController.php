@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\UserData;
+use App\UserData;
 use Illuminate\support\facades\url;
 use Illuminate\support\facades\DB;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -28,7 +28,9 @@ class UserDataController extends Controller
 
     public function indexeeee()
     {
-      $UserData = $UserData::all()->toArray();
+      //return 123;
+      $UserData = UserData::all()->toArray();
+      
       return view ('UserPages.retrieve',compact('UserData')) ;
        
     }
@@ -36,17 +38,30 @@ class UserDataController extends Controller
     public function storeess(Request $request)
     { $UserData = new UserData();
     $validatedData = $request->validate([
-        'User_name' => 'required',
-        'Address' => 'required',
-        'Mobile' => 'required|numeric'
+      
+      'User_name' => 'required',
+      'Address' => 'required',
+      'Mobile' => 'required|numeric'
 
     ]);
+    
+
+    $UserData -> user_id = 10;
+    $UserData -> User_name = $request->input('User_name');
+    $UserData -> Adress = $request->input('Address');
+    $UserData -> Mobile = $request->input('Mobile');
+    
     $UserData->save();
 
-    
-    UserData::create($request->all());
+    //$UserData->save();
 
-      return redirect()->route('UserPages.retrieve')->with('success','User Added');
+      return redirect('/UserPages/retrieve')->with('success','User Added');
+
+    }
+
+    public function create(Request $request)
+    {
+      return view('UserPages.addUser');
 
     }
 

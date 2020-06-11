@@ -80,17 +80,19 @@
 	padding:0;
 	font-family:serif;
 	}
-    header{background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)) , url(people.jpg);
+    header{background-image: linear-gradient(rgba(199, 25, 25, 0.5),rgba(76, 21, 202, 0.5));
 	background-size:cover;
 	background-position:center;
-    height:100vh;	
+    height:70vh;	
    	}
     table.table {
     border: 1px solid #000000;
     background-color: #fffafa;
     width: 90%;
     text-align: center;
+    align: center;
     border-collapse: collapse;
+    border-spacing: 15px;
     }
     table.table td, table.table th {
     border: 1px solid #000000;
@@ -123,6 +125,73 @@
 	color:#fff;
 	}
 
+    
+    table.blueTable {
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 70%;
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 20px;
+  align:center;
+}
+table.blueTable td, table.blueTable th {
+  border: 1px solid #AAAAAA;
+  padding: 5px 2px;
+}
+table.blueTable tbody td {
+  font-size: 13px;
+}
+table.blueTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.blueTable thead {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
+}
+table.blueTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.blueTable thead th:first-child {
+  border-left: none;
+}
+
+table.blueTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+ table.blueTable tfoot td {
+  font-size: 14px;
+}
+  table.blueTable tfoot .links {
+  text-align: right;
+}
+  table.blueTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+.container{
+	width:2000px;
+	margin:50px auto 0;
+	display:table;
+	box-sizing:border-box;	
+	}
+
 
 
 
@@ -137,26 +206,21 @@
 
 
 
+
 <body>
     <header class="header">
-
+        <img src=“people.jpg” >
         <div class='main'>
-            <div class='logo'>
-                <h2>PHARMACY<h2>
-            </div>
-           <ul>
-            <li><a href='/views/home'>HOME</a></li>
-             <li><a href='/index'>SERVICES</a></li>
-             <li><a href='/views/about'>ABOUT</a></li>
-             <li><a href='/views/about'>CONTACT</a></li>
-           </ul>
+            
+         
          </div>
          <div class='title'>
           <h1>Your Information </h1>
          </div>
          <div class='button1'>
-            <a href='/addUser' class='btn1' >Add New User</a>          
+            <a href='/UserPages.addUser' class='btn1' >Add New User</a>                   
         </div>
+        <span class="image featured"><img src="images/people.jpg" alt="" /></span>  
     </header>
     
 
@@ -164,12 +228,10 @@
     <div class='container'>
         <h3 >Your Information</h3>
         <br/>
-        @if($message = session::get('success'))
-        <div class="alert alert-success">
-            <p>{{$message}}</p>
-        </div>
-        @endif
-        <table class="table table-bordered">
+       
+        
+        
+        <table class="blueTable">
             <thead>
                 <tr>
                     <th> Name </th>
@@ -183,28 +245,29 @@
             <tbody>
                 @foreach ($UserData as $row)         
                 <tr>
-                    <td>{{$row['User_name']}}</td>
-                    <td>{{$row['Address']}}</td>
+                    <td>{{$row['User_name'] }}</td>
+                    <td>{{$row['Adress']}}</td>
                     <td>{{$row['Mobile']}}</td>
-                    <td><a href="{{action('UserDataController@edit',$row['id'])}}">
+                <td><a href="/UserPages/editUser/{{$row['id']}}"  >
                         <button class="btn2">  EDIT</button>
                         </a>
                     </td>
                     <td>
-                        <form method="post" class="delete_form" action="{{action('UserDataController@destroy',$row['id'])}}">
+                        <form method="get" class="delete_form" value="get" >
                             {{ csrf_field() }}
-                            <input type="hidden" name="_method" value="DELETE" />
-                            <button type="submit" class="btn btn-danger"> DELETE</button>
+                            <a href="/UserPages/deleteUser/{{$row['id']}}"  > 
+                                <button type="submit" class="btn btn-danger"> DELETE</button>
+                            </a>
+                            
+                            
                         </form>    
                     </td>
                 </tr>
                 @endforeach
             </tbody>  
           </table>
-        <div>
-            <a href="{{route('UserPages.addUser')}}" class="btn btn-primary">
-            Add New User</a>
-        </div> 
+
+    </div> 
         
     <script>
         $(document).ready(function(){
@@ -222,7 +285,8 @@
     </script>    
 
 
-
+<br>
+<br>
     <footer class="footer">
        <p>hoping that we can help you</p>
     </footer>

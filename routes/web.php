@@ -58,10 +58,16 @@ Route::get ('/AdminPages.UserDetails','UserDataController@indexeee');
 Route::get ("/deletee/{id}","UserDataController@deletes");
 Route::get("AdminPages.UserDetails","UserDataController@InsertTodbb");
 
-Route::get('/UserPages.retrieve','UserDataController@indexeeee');
+Route::get('/UserPages/retrieve','UserDataController@indexeeee');
 Route::post('/UserPages.addUser','UserDataController@storeess');
-Route::post('/UserPages.edit','UserDataController@updatee');
+Route::post('/UserPages/edit','UserDataController@updatee');
+Route::get('/UserPages.addUser','UserDataController@create');
+Route::get('/UserPages/edit','UserDataController@updatee');
+Route::get('/UserPages/editUser/{id}','UserDataController@edit');
+Route::get('/UserPages/deleteUser/{id}','UserDataController@destroy');
+#Route::post('/UserPages/deleteUser/{id}','UserDataController@destroy');
 
+/*Route::resorces('/UserPages','UserDataController');*/
 
     /*
 

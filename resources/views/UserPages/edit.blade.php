@@ -64,11 +64,12 @@
 	padding:0;
 	font-family:serif;
 	}
-    header{background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)) , url(people.jpg);
+    header{background-image: linear-gradient(rgba(199, 25, 25, 0.5),rgba(76, 21, 202, 0.5)) ;
 	background-size:cover;
 	background-position:center;
-    height:100vh;	
+    height:70vh;	
    	}
+       
 
     footer.footer {
     text-align: center;
@@ -83,6 +84,7 @@
 	height:auto;
 	color:#fff;
 	}
+    
 
 
 
@@ -100,26 +102,20 @@
 
 <body>
     <header class="header">
+        <img src=“people.jpg” >
 
         <div class='main'>
-            <div class='logo'>
-                <h2>PHARMACY<h2>
-            </div>
-            <ul>
-             <li><a href='/views/home'>HOME</a></li>
-             <li><a href='/index'>SERVICES</a></li>
-             <li><a href='/views/about'>ABOUT</a></li>
-             <li><a href='/views/about'>CONTACT</a></li>
-            </ul>
+            
         </div>
         <div class='title'>
           <h1>Edit Your Information </h1>
          </div>
         <div class='button1'>
-            <a href='/addUser' class='btn1' >Add New User</a>
-            <a href='/retrieve' class='btn1' >Show information</a>          
+            <a href='/UserPages.addUser' class='btn1' >Add New User</a>  
+            <a href='/UserPages/retrieve' class='btn1' >Show Your Information</a>          
         </div>
-
+        <!--<span class="image"><img src="images/people.jpg" alt="" /></span>-->
+        
     </header>
 
 
@@ -134,16 +130,17 @@
             </ul>
 
         @endif
-        <form method="post" action="{{action('UserDataController@updatee',$id)}}">
+        <form method="post" action='/UserPages.addUser'>
            {{csrf_field()}}
+           
 
-            <input type="hidden" name="_method" value="PATCH" />
+            <input type="hidden" name="_method" value="post" />
             <div class="form-group">
                 <input type="text" name="User_name" class="form-control" value="{{$UserData->User_name}}" placeholder="Enter Your Name"/>
             </div>   
             
             <div class="form-group">
-                <input type="text" name="Address" class="form-control" value="{{$UserData->Address}}" placeholder="Enter Your Address"/>
+                <input type="text" name="Address" class="form-control" value="{{$UserData->Adress}}" placeholder="Enter Your Address"/>
             </div> 
 
             <div class="form-group">

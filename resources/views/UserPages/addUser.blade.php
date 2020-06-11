@@ -11,23 +11,23 @@
 
   
 <style type="text/css">
-    body{
+  body{
     	
         
         background-size: cover;
         background-position: center center;
         background-attachment: fixed;
-    }
+  }
     
-    #ui label,h1{
+  #ui label,h1{
         color: #fff;
-    }
+  }
     
 
-  header{background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)) , url(people.jpg);
+  header{background-image: linear-gradient(rgba(199, 25, 25, 0.5),rgba(76, 21, 202, 0.5)) , url(people.jpg);
 	background-size:cover;
 	background-position:center;
-    height:100vh;	
+    height:70vh;	
    	}
 	
 	ul{
@@ -124,31 +124,25 @@ input[type=submit]:hover {
 <body>
 <header>
     <div class='main'>
-       <div class='logo'>
-         <h2>PHARMACY<h2>
-       </div>
-      <ul>
-        <li><a href='/views/home'>HOME</a></li>
-        <li><a href='/index'>SERVICES</a></li>
-        <li><a href='/views/about'>ABOUT</a></li>
-        <li><a href='/views/about'>CONTACT</a></li>
-      </ul>
+      <img src=“people.jpg” >
+     
     </div>
     <div class='title'>
      <h1>ADD USER</h1>
     </div>
     <div class='button1'>
-      <a href='/retrieve' class='btn1' >Show information</a> 
-      <a href='/edit' class='btn1' >Edit information</a>
-    </div>
+      <a href='/UserPages/retrieve' class='btn1' >Show Your Information</a>                   
+  </div>
     
     
-   </header>
-
+   </header>    
+<br>
 <h3>Add User</h3>
 
 <div>
-<form action="/userData" method="post"> 
+  <!--<form action="/AdminPages.delete" method="Post" enctype="multipart/form-data">-->
+<form action='/UserPages.addUser'  method="Post"> 
+  {{csrf_field()}}
 
 <label for="fname">User Name</label>
     <input type="text" id="User_name" name="User_name" placeholder="Your name.." class="form-control" >

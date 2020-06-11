@@ -25,7 +25,7 @@
     }
     
 
-  header{background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)) , url(background.jpg);
+  header{background-image: linear-gradient(rgba(250, 221, 221, 0.5),rgba(0,0,0,0.5)) , url(background.jpg);
 	background-size:cover;
 	background-position:center;
     height:100vh;	
